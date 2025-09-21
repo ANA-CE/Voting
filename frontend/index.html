@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Scoring System</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome to Idea Scoring</h2>
+                <p>Please enter your email address to continue</p>
+            </div>
+            <div class="modal-body">
+                <form id="emailForm">
+                    <div class="form-group">
+                        <label for="userEmail">Email Address:</label>
+                        <input type="text" id="userEmail" placeholder="your.email" required>
+                        <div id="emailError" class="error-message" style="display: none;"></div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="modal-button primary">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="header">
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <div class="user-email">
+                        <span class="user-label">👤</span>
+                        <span id="displayEmail"></span>
+                    </div>
+                </div>
+                <h1>🗳️ Multi-Round Idea Scoring</h1>
+                <p>Round 1 - Score all ideas (2, 1, or 0). Score 2: max 20% of ideas, Score 1: max 40% of ideas, Score
+                    0: remaining ideas. Click current score to remove, click different score to change.</p>
+            </div>
+
+            <div class="game-container">
+                <div class="round-info" id="roundInfo" style="display: none;">
+                    <strong>Round Information</strong>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number" id="totalIdeas">20</div>
+                        <div class="stat-label">Total Ideas</div>
+                    </div>
+                </div>
+
+                <div class="ideas-section">
+                    <h2 class="section-title">💡 Ideas to Score</h2>
+                    <div class="ideas-grid" id="ideasGrid">
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="control-button" id="submitVoteBtn" disabled>Submit Vote</button>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2 class="section-title">📊 Voting Results</h2>
+                <div class="results-summary">
+                    <div class="result-stat">
+                        <div class="stat-number" id="totalVotes">0</div>
+                        <div class="stat-label">Total Votes</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-number" id="avgScore2">0</div>
+                        <div class="stat-label">Score 2 Points</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-number" id="avgScore1">0</div>
+                        <div class="stat-label">Score 1 Points</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-number" id="avgScore0">0</div>
+                        <div class="stat-label">Score 0 Points</div>
+                    </div>
+                </div>
+                <div class="average-scores" id="averageScores">
+                    <h3>Average Scores by Idea</h3>
+                    <div id="averageScoresList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
